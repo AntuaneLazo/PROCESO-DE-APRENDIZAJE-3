@@ -1,0 +1,441 @@
+/* =========================================================
+   ENCUENTRO — Evaluación Integral
+   Diseño y Desarrollo Web 2026-10
+   ========================================================= */
+
+/* ---------- Variables CSS ---------- */
+:root {
+  --color-bg:       #1e1410;
+  --color-bg-alt:   #2a1d17;
+  --color-cream:    #f4ecdd;
+  --color-cream-soft: #e0d4bc;
+  --color-chili:    #c8412a;
+  --color-corn:     #e09b30;
+  --color-turq:     #1a7c74;
+
+  --font-display: 'Unbounded', sans-serif;
+  --font-body:    'Work Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  --radius: 14px;
+  --transition: 0.25s ease;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-bg);
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+}
+
+a { text-decoration: none; }
+
+/* ---------- Utilidades ---------- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-corn);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.eyebrow-dark { color: var(--color-chili); }
+
+.section-pad { padding: 90px 0; }
+.section-pad-sm { padding: 60px 0; }
+
+/* ---------- Navbar personalizado ---------- */
+#site-navbar {
+  background-color: var(--color-bg) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.navbar-brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--color-cream) !important;
+  letter-spacing: 0.02em;
+}
+
+.brand-dot { color: var(--color-corn); }
+
+.navbar-nav .nav-link {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.92rem;
+  color: var(--color-cream-soft) !important;
+  padding: 0.5rem 1rem !important;
+  transition: color var(--transition);
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--color-corn) !important;
+}
+
+.navbar-toggler { border-color: rgba(255,255,255,0.3); }
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28244,236,221,0.8%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ---------- Hero ---------- */
+.hero-section {
+  background-color: var(--color-bg);
+  color: var(--color-cream);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(224,155,48,.06) 0 2px, transparent 2px 28px),
+    repeating-linear-gradient(-45deg, rgba(26,124,116,.06) 0 2px, transparent 2px 28px);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-corn);
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero-text {
+  font-size: 1.05rem;
+  color: var(--color-cream-soft);
+  max-width: 540px;
+}
+
+/* ---------- Botones ---------- */
+.btn-chili {
+  background-color: var(--color-chili);
+  color: var(--color-cream);
+  border: none;
+  border-radius: 999px;
+  padding: 13px 28px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  transition: background-color var(--transition), transform var(--transition);
+}
+.btn-chili:hover {
+  background-color: #a8331f;
+  color: var(--color-cream);
+  transform: translateY(-2px);
+}
+
+.btn-outline-cream {
+  background: transparent;
+  color: var(--color-cream);
+  border: 2px solid rgba(244,236,221,0.5);
+  border-radius: 999px;
+  padding: 11px 28px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.btn-outline-cream:hover {
+  border-color: var(--color-cream);
+  color: var(--color-cream);
+  transform: translateY(-2px);
+}
+
+/* ---------- Divisor granos ---------- */
+.kernel-divider {
+  height: 24px;
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(circle 4px at center, var(--color-corn) 99%, transparent 100%),
+    radial-gradient(circle 4px at center, var(--color-chili) 99%, transparent 100%),
+    radial-gradient(circle 4px at center, var(--color-turq) 99%, transparent 100%);
+  background-repeat: repeat-x;
+  background-size: 48px 100%;
+  background-position: 0 50%, 16px 50%, 32px 50%;
+}
+
+/* ---------- Tarjetas de acceso rápido (Inicio) ---------- */
+.home-cards-section { background-color: var(--color-cream); }
+
+.quick-card {
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  color: var(--color-cream);
+  height: 100%;
+  transition: transform var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.quick-card:hover { transform: translateY(-5px); }
+.quick-card.featured {
+  background-color: var(--color-chili);
+  border: 2px solid var(--color-corn);
+}
+.quick-card i { font-size: 1.8rem; color: var(--color-corn); }
+.quick-card.featured i { color: var(--color-cream); }
+.quick-card h3 { font-size: 1rem; margin: 0; }
+.quick-card p { font-size: 0.87rem; color: var(--color-cream-soft); margin: 0; flex: 1; }
+.quick-card.featured p { color: rgba(244,236,221,0.85); }
+.card-arrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-corn);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.quick-card.featured .card-arrow { color: var(--color-cream); }
+
+/* ---------- Stat cards (Nosotros) ---------- */
+.stat-card {
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-corn);
+}
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-cream-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.valor-card {
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius);
+  padding: 28px;
+  color: var(--color-cream);
+  height: 100%;
+}
+.valor-card i { font-size: 1.6rem; color: var(--color-corn); margin-bottom: 14px; display: block; }
+.valor-card h4 { font-size: 1rem; margin-bottom: 8px; }
+.valor-card p { font-size: 0.86rem; color: var(--color-cream-soft); margin: 0; }
+
+/* ---------- Equipo ---------- */
+.team-card {
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  padding: 28px;
+  color: var(--color-cream);
+  height: 100%;
+}
+.team-avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+.av-1 { background: linear-gradient(135deg, var(--color-chili), var(--color-corn)); }
+.av-2 { background: linear-gradient(135deg, var(--color-turq), var(--color-chili)); }
+.av-3 { background: linear-gradient(135deg, var(--color-corn), var(--color-turq)); }
+.team-role {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-corn);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 4px 0 10px;
+}
+.team-bio { font-size: 0.85rem; color: var(--color-cream-soft); margin: 0; }
+
+/* ---------- Menú ---------- */
+.menu-col {
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius);
+  padding: 30px 26px;
+  height: 100%;
+}
+.menu-col.fusion-col {
+  background-color: var(--color-chili);
+  border: 2px solid var(--color-corn);
+}
+.menu-col-title {
+  font-size: 1rem;
+  color: var(--color-cream);
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(244,236,221,0.15);
+}
+.menu-item { margin-bottom: 20px; }
+.menu-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--color-cream);
+  font-size: 0.93rem;
+}
+.price {
+  font-family: var(--font-mono);
+  color: var(--color-corn);
+  white-space: nowrap;
+}
+.fusion-col .price { color: var(--color-cream); }
+.menu-desc { font-size: 0.82rem; color: var(--color-cream-soft); margin: 5px 0 0; }
+
+/* ---------- Galería ---------- */
+.gal-card {
+  border-radius: var(--radius);
+  min-height: 200px;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  color: var(--color-cream);
+  font-weight: 600;
+  font-size: 0.88rem;
+  overflow: hidden;
+}
+.gal-1 { background: linear-gradient(135deg, var(--color-chili), #7a2218); }
+.gal-2 { background: linear-gradient(135deg, var(--color-turq), #10403c); }
+.gal-3 { background: linear-gradient(135deg, var(--color-corn), #8a5c14); }
+.gal-4 { background: linear-gradient(135deg, #3e2f28, var(--color-bg)); }
+.gal-5 { background: linear-gradient(135deg, #2c5055, var(--color-chili)); }
+.gal-6 { background: linear-gradient(135deg, #5a3020, var(--color-corn)); }
+
+/* ---------- Contacto ---------- */
+.contact-info-card {
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  padding: 36px;
+  color: var(--color-cream);
+  height: 100%;
+}
+.contact-list { list-style: none; padding: 0; margin: 0 0 28px; }
+.contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+  font-size: 0.93rem;
+  color: var(--color-cream-soft);
+}
+.contact-list i { color: var(--color-chili); margin-top: 3px; width: 16px; }
+.horario-table { width: 100%; margin-bottom: 28px; }
+.horario-table td { padding: 5px 0; font-size: 0.88rem; color: var(--color-cream-soft); }
+.horario-table td:first-child { font-weight: 600; color: var(--color-cream); padding-right: 20px; }
+.social-links { display: flex; gap: 14px; font-size: 1.3rem; }
+.social-links a { color: var(--color-cream-soft); transition: color var(--transition); }
+.social-links a:hover { color: var(--color-corn); }
+
+/* Formulario de contacto */
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-cream-soft);
+}
+.form-control, .form-select {
+  background-color: rgba(244,236,221,0.06);
+  border: 1px solid rgba(244,236,221,0.2);
+  border-radius: 10px;
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  padding: 11px 14px;
+}
+.form-control:focus, .form-select:focus {
+  background-color: rgba(244,236,221,0.08);
+  border-color: var(--color-corn);
+  box-shadow: 0 0 0 3px rgba(224,155,48,.2);
+  color: var(--color-cream);
+}
+.form-control::placeholder { color: rgba(244,236,221,0.35); }
+
+/* ---------- Pasos reservas ---------- */
+.paso-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-corn);
+  min-width: 52px;
+  line-height: 1;
+}
+
+/* ---------- Footer ---------- */
+#site-footer {
+  background-color: var(--color-bg);
+  color: var(--color-cream-soft);
+  padding: 56px 0 28px;
+}
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--color-cream);
+}
+.footer-brand-name span { color: var(--color-corn); }
+.footer-nav a {
+  color: var(--color-cream-soft);
+  font-size: 0.9rem;
+  transition: color var(--transition);
+}
+.footer-nav a:hover { color: var(--color-corn); }
+.footer-divider {
+  border-color: rgba(244,236,221,0.1);
+  margin: 32px 0 24px;
+}
+.footer-copy { font-size: 0.8rem; color: rgba(244,236,221,0.4); }
+
+/* ---------- Horarios cards ---------- */
+.horario-card {
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  color: var(--color-cream);
+  height: 100%;
+}
+.horario-card.featured { background-color: var(--color-chili); }
+.horario-card h5 { font-size: 0.95rem; margin-bottom: 10px; }
+.horario-hora {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  color: var(--color-corn);
+  margin: 0;
+}
+.horario-card.featured .horario-hora { color: var(--color-cream); }
+
+/* ---------- Page hero interior ---------- */
+.page-hero {
+  background-color: var(--color-bg);
+  color: var(--color-cream);
+  padding: 80px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero .hero-pattern { position: absolute; inset: 0; }
+.page-hero-inner { position: relative; }
+.page-hero h1 { font-size: clamp(1.8rem, 4vw, 3rem); margin-top: 8px; }
